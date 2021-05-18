@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Guest Management System";
+}
+
+<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-3.4.2.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" src="~/lib/bootstrap/dist/css/bootsrtap.css" />
+<script src="~/js/GuestsViewModel.js"></script>
+
+<div class="row">
+    <div class="col-lg-12">
+        <p class="text-right">
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    </div>
+</div>
+<table class="table table-striped" id="guestTable">
+    <thead>
+        <tr>
+            <th scope="col">
+                <label for="firstName">First Name</label>
+            </th>
+            <th scope="col">
+                <label for="lastName">Last Name</label>
+            </th>
+            <th scope="col">
+                <label for="email">Email</label>
+            <th scope="col">
+                <label for="phoneNumber">Phone Number</label>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody data-bind="foreach: Guests">
+        <tr>
+            <td>
+                <span data-bind="text: FirstName" />
+            </td>
+            <td>
+                <span data-bind="text: LastName" />
+            </td>
+            <td>
+                <span data-bind="text: Email" />
+            </td>
+            <td>
+                <span data-bind="text: PhoneNumber" />
+            </td>
+            <td>
+                <input type="hidden" id="hiddenGuestId" data-bind="text: GuestId" />
+            </td>
+            <td>
+                <button class="btnEdit btn btn-primary btn-sm" data-bind="click: $parent.edit" url="@Url.Action("Edit", "Guests")">Edit</button>
+
+                @*@Html.ActionLink("Edit", "Edit", "Guests", new { id = "" })*@
+            </td>
+            @*<td>
+                    <a data-bind="attr: { 'href': '@Url.Action("Edit", "Guests")?id=' + knockoutVar() }">Edit</a>
+                </td>*@
+        </tr>
+    </tbody>
+
+
+</table>
