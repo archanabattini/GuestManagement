@@ -56,7 +56,7 @@ namespace Guests
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Guests}/{action}/{id?}");
+                    pattern: "{controller=Guests}/{action=Index}/{id?}");
             });
         }
     }

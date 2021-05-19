@@ -42,7 +42,7 @@ function GuestViewModel() {
         });
     } else {
         $.ajax({
-            url: 'Get',
+            url: '/Guests/Get',
             cache: false,
             type: 'GET',
             contentType: 'application/json; charset=utf-8',
@@ -55,15 +55,15 @@ function GuestViewModel() {
 
     //Add New Guest
     self.create = function () {
-        if (Guest.FirstName() != "" && Guest.LastName() != ""
-            && Guest.Email() != "") {
+        /*if (Guest.FirstName() != "" && Guest.LastName() != ""
+            && Guest.Email() != "") {*/
             Guest.GuestId("");
             var _guest = JSON.parse(ko.toJSON(Guest));
             delete _guest.GuestId;
             $("div.spanner").addClass("show");
             $("div.overlay").addClass("show");
             $.ajax({
-                url: 'Create',
+                url: '/Guests/Create',
                 cache: false,
                 type: 'POST',
                 dataType: 'json',
@@ -78,10 +78,10 @@ function GuestViewModel() {
                     $("div.spanner").removeClass("show");
                     $("div.overlay").removeClass("show");
                 });
-        }
+        /*}
         else {
-            /*alert('Please Enter All the Values !!');*/
-        }
+            //alert('Please Enter All the Values !!');
+        }*/
     }
 
     self.edit = function (Guest, event) {
