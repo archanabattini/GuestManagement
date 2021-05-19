@@ -3,9 +3,12 @@
 ## Solution Approach:
 
 Created a Visual Studio Solution consisting of 3 projects; 
-A Class Library for Core Models and interfaces [GMServices]
-A Class Library for Data Access and Repositories [GMDAO]
-An MVC Core project for presentation using Knockout JS as MVVM framework [Guests]
+
+* A Class Library for Core Models and interfaces [GMServices]
+
+* A Class Library for Data Access and Repositories [GMDAO]
+
+* An MVC Core project for presentation using Knockout JS as MVVM framework [Guests]
 
 ## Visual Studio Steps
 
